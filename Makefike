@@ -1,0 +1,2 @@
+debug:
+  DEBUG=true ./node_modules/.bin/grunt debug

@@ -1,0 +1,11 @@
+fontsize(size = 10)
+  font-size: unit(size, px)
+  font-size: unit(size/10,rem)
+
+lineheight(height = 10)
+  calc = height/10
+  line-height: calc
+
+fset(font_size,line_height)
+  fontsize(font_size)
+  lineheight(line_height)
