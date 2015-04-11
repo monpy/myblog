@@ -33,13 +33,14 @@ module.exports = (g) ->
       dist:
         options: 
           cssmin: true
+          uglify: true
         src: ['build/index.html']
-        dest: ['tumble_build/']
+        dest: 'tumblr_build/'
 
     uglify:
       js:
         files:
-          'public/js/app.min.js': ['public/js/app.js']
+          'build/js/app.min.js': ['build/js/app.js']
 
     assemble:
       site:
@@ -71,30 +72,20 @@ module.exports = (g) ->
       js:
         files: ['src/js/**/*.js']
         tasks: 'browserify'
-      img:
-        files: ['src/images/**/*.{html,json,png,jpg,gif}']
-        tasks: 'img'
-
-    g.registerTask 'html', ['assemble','preprocess:html']
-
-    g.registerTask 'css', 'stylus'
-
-    g.registerTask 'build', ['clean', 'html', 'css', 'js', 'img']
 
     g.registerTask 'default', ['build', 'watch']
-    
+    g.registerTask 'html', ['assemble','preprocess:html']
+    g.registerTask 'build', ['clean', 'html', 'css', 'js']
+    g.registerTask 'tumblr', ['build','inline']
+    g.registerTask 'css', 'stylus'
     g.registerTask 'js', ['browserify','preprocess:js','uglify']
+    g.registerTask 'watch', ['browserSync']
 
     g.loadNpmTasks 'grunt-contrib-clean'
-    
     g.loadNpmTasks 'grunt-contrib-stylus'
-    
+    g.loadNpmTasks 'grunt-contrib-uglify'
     g.loadNpmTasks 'grunt-browserify'
-
     g.loadNpmTasks 'grunt-browser-sync'
-
     g.loadNpmTasks 'grunt-preprocess'
-
     g.loadNpmTasks 'grunt-inline'
-
     g.loadNpmTasks 'assemble';

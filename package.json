@@ -23,11 +23,14 @@
     "grunt-browserify": "^3.2.1",
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-stylus": "^0.20.0",
+    "grunt-contrib-uglify": "^0.9.1",
     "grunt-inline": "^0.3.2",
     "grunt-preprocess": "^4.1.0"
   },
   "dependencies": {
+    "component-emitter": "^1.2.0",
     "grunt-env": "^0.4.2",
+    "grunt-inline": "^0.3.4",
     "normalize.css": "^3.0.2"
   }
 }
